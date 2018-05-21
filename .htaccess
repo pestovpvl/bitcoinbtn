@@ -1,0 +1,5 @@
+PassengerRuby /opt/rubies/ruby-2.3/bin/ruby
+PassengerUploadBufferDir /home/a/artpes57/bitcoinbtn.ru/tmp
+SetENV GEM_HOME /home/a/artpes57/.gem/ruby/2.3.1
+SetENV GEM_PATH /home/a/artpes57/.gem/ruby/2.3.1:/opt/ruby/2.3/lib/ruby/gems/2.3.0
+RAILSENV development
