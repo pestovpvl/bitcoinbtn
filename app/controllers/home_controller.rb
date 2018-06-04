@@ -8,7 +8,4 @@ class HomeController < ApplicationController
     @coins = JSON.parse(@response)
     @my_coins = ["BTC", "XRP", "ADA", "XLM", "STEEM",] 
   end
-  def lookup
-    @symbol = params[:sym]
-  end
 end
