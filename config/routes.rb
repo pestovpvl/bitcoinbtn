@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
-  
-
-
-  get 'static_pages/about'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
-
+  get '/about' => 'static_pages#about'
+  get '/lookup' => 'static_pages#lookup'
+  post '/lookup' => 'static_pages#lookup'
   root to: "home#index"
-  
-  
 end
