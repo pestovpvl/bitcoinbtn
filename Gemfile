@@ -63,5 +63,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rb-readline'
 gem 'i18n'
 gem 'therubyracer'
-
+gem 'devise', '~> 4.4', '>= 4.4.3'
 

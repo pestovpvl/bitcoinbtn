@@ -5,4 +5,12 @@
   <%= submit_tag 'Lookup Stock Quote' %>
 <% end %>
 
-  <%= @symbol %>
+<% if @symbol %>
+  <% for x in @lookup_coins %>
+    <% if @symbol == x["symbol"] %>
+      <%= x["name"] %>: <%= x["price_usd"] %>$ | Rank: <%= x["rank"] %><br> 
+    <% end %>
+  <% end %>
+<% end %>
+
+

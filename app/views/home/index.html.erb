@@ -5,9 +5,9 @@
 <% @coins %>
 
 <% for x in @coins %>
-  <% for coin in @my_coins %>
-    <% if coin == x["symbol"] %>
-        <%= x["name"] %>: <%= x["price_usd"] %>$ | Rank: <%= x["rank"] %><br> 
+    <% for coin in @my_coins %>
+        <% if coin == x["symbol"] %>
+            <%= x["name"] %>: <%= x["price_usd"] %>$ | Rank: <%= x["rank"] %><br> 
+        <% end %>
     <% end %>
-<% end %>
 <% end %>
