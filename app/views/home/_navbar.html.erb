@@ -1,9 +1,12 @@
 <%= link_to "lookup", lookup_path %>
-<% if !user_signed_in? %>
-<%= link_to "Logout", destroy_person_session_path, method: :delete %>
-<%= link_to "Setting Accout", edit_person_registration_path %>
-<% else %>
+
+<% if user_signed_in? %>
+
 <%= link_to "Sign Up", new_person_registration_path %>
 <%= link_to "Login", new_person_session_path %>
+<% else %>
+<%= link_to "Logout", destroy_person_session_path, method: :delete %>
+<%= link_to "Setting Accout", edit_person_registration_path %>
+
 <% end %>
 

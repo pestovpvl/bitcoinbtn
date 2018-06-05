@@ -1,0 +1,2 @@
+module CryptosHelper
+end
