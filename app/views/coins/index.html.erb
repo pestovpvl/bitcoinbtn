@@ -5,8 +5,9 @@
 <table>
   <thead>
     <tr>
+    <th> Name </th>
       <th>Symbol</th>
-      <th>Person</th>
+      
       <th>Cost per</th>
       <th>Amount owned</th>
       <th colspan="3"></th>
@@ -17,9 +18,22 @@
 
     <% @coins.each do |coin| %>
     <% if coin.person_id == current_person.id %>
-      <tr>
+<% if coin.symbol %>
+
+  <% coin.symbol = coin.symbol.upcase %>
+<% end %>
+<tr>
+<% for x in @lookup_coins %>  
+        <% if coin.symbol == x["symbol"] %>
+          <td>  <%= x["name"] %> </td>
+        <% end %>
+<% end %>
+
+
+
+      
         <td><%= coin.symbol %></td>
-        <td><%= coin.person_id %></td>
+       
         <td><%= coin.cost_per %></td>
         <td><%= coin.amount_owned %></td>
         <td><%= link_to 'Show', coin %></td>
