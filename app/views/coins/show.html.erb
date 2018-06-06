@@ -1,0 +1,24 @@
+
+
+<p>
+  <strong>Symbol:</strong>
+  <%= @coin.symbol %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @coin.person_id %>
+</p>
+
+<p>
+  <strong>Cost per:</strong>
+  <%= @coin.cost_per %>
+</p>
+
+<p>
+  <strong>Amount owned:</strong>
+  <%= @coin.amount_owned %>
+</p>
+
+<%= link_to 'Edit', edit_coin_path(@coin) %> |
+<%= link_to 'Back', coins_path %>

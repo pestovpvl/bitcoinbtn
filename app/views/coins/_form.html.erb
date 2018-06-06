@@ -1,10 +1,10 @@
-<%= form_with(model: crypto, local: true) do |form| %>
-  <% if crypto.errors.any? %>
+<%= form_with(model: coin, local: true) do |form| %>
+  <% if coin.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(crypto.errors.count, "error") %> prohibited this crypto from being saved:</h2>
+      <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
 
       <ul>
-      <% crypto.errors.full_messages.each do |message| %>
+      <% coin.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field 1, value: current_person.id %>
+   
+    <%= form.number_field :person_id, value: current_person.id, type: "hidden" %>
   </div>
 
   <div class="field">
@@ -27,8 +27,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :amount_owner %>
-    <%= form.text_field :amount_owner %>
+    <%= form.label :amount_owned %>
+    <%= form.text_field :amount_owned %>
   </div>
 
   <div class="actions">

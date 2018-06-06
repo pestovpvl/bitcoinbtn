@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_05_030545) do
+ActiveRecord::Schema.define(version: 2018_06_06_015055) do
+
+  create_table "coins", force: :cascade do |t|
+    t.string "symbol"
+    t.integer "person_id"
+    t.decimal "cost_per"
+    t.decimal "amount_owned"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_coins_on_person_id"
+  end
 
   create_table "cryptos", force: :cascade do |t|
     t.string "symbol"

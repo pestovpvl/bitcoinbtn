@@ -3,5 +3,5 @@ class Person < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-         has_many :cryptos
+         has_many :coins
 end
