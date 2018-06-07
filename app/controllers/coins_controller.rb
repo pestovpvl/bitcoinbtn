@@ -8,16 +8,25 @@ class CoinsController < ApplicationController
     @coins = Coin.all
     require 'net/http'
     require 'json'
-    @url = 'https://api.coinmarketcap.com/v1/ticker/'
+    @url = 'https://api.coinmarketcap.com/v1/ticker/?limit=1000'
     @uri = URI(@url)
     @response = Net::HTTP.get(@uri)
     @lookup_coins = JSON.parse(@response)
     @profit_lost = 0
+    @profit_summ = 0
   end
 
   # GET /coins/1
   # GET /coins/1.json
   def show
+    @coins = Coin.all
+    require 'net/http'
+    require 'json'
+    @url = 'https://api.coinmarketcap.com/v1/ticker/?limit=1000'
+    @uri = URI(@url)
+    @response = Net::HTTP.get(@uri)
+    @show_coins = JSON.parse(@response)
+    
   end
 
   # GET /coins/new

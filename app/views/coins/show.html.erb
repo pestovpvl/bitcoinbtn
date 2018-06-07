@@ -20,5 +20,22 @@
   <%= @coin.amount_owned %>
 </p>
 
+
+
+<% for x in @show_coins %>
+  <% if @coin.symbol.upcase == x["symbol"] %>
+    <% coin_name = x["name"] %>
+    <% coin_price = x["price"] %>
+    <% coin_rank = x["rank"] %>
+    <% else %>
+ 
+  
+  <% end %>
+<% end %>
+
+<p> Current price: <%= coin_rank %> </p>
+
+
+
 <%= link_to 'Edit', edit_coin_path(@coin) %> |
 <%= link_to 'Back', coins_path %>

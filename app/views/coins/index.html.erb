@@ -8,11 +8,12 @@
     <th>Название</th>
     <th>Текущая цена монеты </th>
   
-    <th>Сумма</th>
+    
     <th>Рейтинг валюты</th>
     <th>Изменение за 1 час</th>
     <th>Изменение 1 день</th>
     <th>Изменение 7 дней</th>
+    <th>Сумма</th>
     <th>Всего заплаченно</th>
     <th>Доход/Расход</th>
      
@@ -47,6 +48,7 @@
           <td>  $<%=  coin.cost_per * coin.amount_owned  %></td>
           <td>  $<%= x["price_usd"].to_d * coin.amount_owned - (coin.cost_per * coin.amount_owned)  %></td>
         <% @profit_lost += (x["price_usd"].to_d * coin.amount_owned) - (coin.cost_per * coin.amount_owned)  %>
+        <% @profit_summ += x["price_usd"].to_d * coin.amount_owned  %>
         <% end %>
 <% end %>
 
@@ -70,4 +72,8 @@
 Portfolio profit/lost:  $ <%= @profit_lost %>
 <br>
 
+<br>
+Money amount:  $ <%= @profit_summ %>
+<br>
+<br>
 <%= link_to 'New Coin', new_coin_path %>
