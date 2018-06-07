@@ -5,13 +5,20 @@
 <table>
   <thead>
     <tr>
-    <th> Name </th>
-    <th>Текущая цена </th>
+    <th>Название</th>
+    <th>Текущая цена монеты </th>
+  
     <th>Сумма</th>
+    <th>Рейтинг валюты</th>
+    <th>Изменение за 1 час</th>
+    <th>Изменение 1 день</th>
+    <th>Изменение 7 дней</th>
+    <th>Всего заплаченно</th>
+    <th>Доход/Расход</th>
      
       
-      <th>Cost per</th>
-      <th>Amount owned</th>
+      <th>Цена покупки</th>
+      <th>Количество монет</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,13 +36,22 @@
         <% if coin.symbol == x["symbol"] %>
           <td>  <%= x["name"] %> </td>
           <td>  $ <%=  x["price_usd"]  %></td>
+          <td>  <%=  x["rank"]  %></td>
+
+<td>   <%=  x["percent_change_1h"]  %> %</td>
+<td>   <%=  x["percent_change_24h"] %> %</td>
+<td>   <%=  x["percent_change_7d"]  %> %</td>
+
+
           <td>  $<%=  x["price_usd"].to_d * coin.amount_owned  %></td>
+          <td>  $<%=  coin.cost_per * coin.amount_owned  %></td>
+          <td>  $<%= x["price_usd"].to_d * coin.amount_owned - (coin.cost_per * coin.amount_owned)  %></td>
+        <% @profit_lost += (x["price_usd"].to_d * coin.amount_owned) - (coin.cost_per * coin.amount_owned)  %>
         <% end %>
 <% end %>
 
 
-
-      
+ 
          
        
         <td>$ <%= coin.cost_per %></td>
@@ -49,6 +65,9 @@
   </tbody>
 </table>
 
+<br>
+<br>
+Portfolio profit/lost:  $ <%= @profit_lost %>
 <br>
 
 <%= link_to 'New Coin', new_coin_path %>

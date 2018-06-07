@@ -12,6 +12,7 @@ class CoinsController < ApplicationController
     @uri = URI(@url)
     @response = Net::HTTP.get(@uri)
     @lookup_coins = JSON.parse(@response)
+    @profit_lost = 0
   end
 
   # GET /coins/1
