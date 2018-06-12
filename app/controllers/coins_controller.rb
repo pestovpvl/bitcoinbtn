@@ -1,6 +1,7 @@
 class CoinsController < ApplicationController
   before_action :set_coin, only: [:show, :edit, :update, :destroy]
   before_action :correct_person, only: [:show, :edit, :update, :destroy]
+  before_action :changeInputValue
 
   # GET /coins
   # GET /coins.json
@@ -26,7 +27,7 @@ class CoinsController < ApplicationController
     @uri = URI(@url)
     @response = Net::HTTP.get(@uri)
     @show_coins = JSON.parse(@response)
-    
+   
   end
 
   # GET /coins/new
@@ -39,6 +40,7 @@ class CoinsController < ApplicationController
     @uri = URI(@url)
     @response = Net::HTTP.get(@uri)
     @show_coins_new = JSON.parse(@response)
+   
   end
 
   # GET /coins/1/edit
@@ -49,7 +51,7 @@ class CoinsController < ApplicationController
   # POST /coins.json
   def create
     @coin = Coin.new(coin_params)
-
+   
     respond_to do |format|
       if @coin.save
         format.html { redirect_to @coin, notice: 'Coin was successfully created.' }
@@ -99,4 +101,10 @@ class CoinsController < ApplicationController
       @correct = current_person.coins.find_by(id: params[:id])
       redirect_to coins_path, notice: "Пользователи не могут просматривать монеты других участников" if @correct.nil?
     end
+
+    def changeInputValue
+      @inputValue = Coin.new(params[:symbol])
+     # Change value here
+    end
+
 end
