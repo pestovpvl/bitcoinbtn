@@ -2,7 +2,6 @@ class CoinsController < ApplicationController
   before_action :set_coin, only: [:show, :edit, :update, :destroy]
   before_action :correct_person, only: [:show, :edit, :update, :destroy]
   before_action :edit_input_value_before_save
-
   # GET /coins
   # GET /coins.json
   def index

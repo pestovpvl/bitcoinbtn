@@ -1,12 +1,23 @@
-<br>
-<h1> Следите за вашими финсами в реальном времени </h1>
-
-
-<% @coins %>
-<% for x in @coins %>
-    <% for coin in @my_coins %>
-        <% if coin == x["symbol"] %>
-            <%= x["name"] %>: <%= x["price_usd"] %>$ | Rank: <%= x["rank"] %><br> 
-        <% end %>
-    <% end %>
+<% if !person_signed_in? %>
+    <div class="row">
+        <div class="col-md-12">
+            <section class="jumbotron text-center">
+                <div class="container">
+                <h1 class="jumbotron-heading">Keep track of your crypto coins</h1>
+                <p class="lead text-muted">Create an account and add your coins. And watch in real time. How much do they cost in sum and separately <a href="#"> Read More... </a></p>
+                
+                <p>
+                    <a href="#" class="btn btn-primary my-2">Sign Up</a>
+                    <a href="#" class="btn btn-secondary my-2">Login</a>
+                </p>
+                </div>
+            </section>
+        </div>
+    </div>
+<% else %>
+    <%= link_to "Add new", new_coin_path %>
+    <%= link_to "Check Money", coins_path %>
+    <%= link_to "Logout", destroy_person_session_path, method: :delete %>
+    <%= link_to "Setting Accout", edit_person_registration_path %>
 <% end %>
+

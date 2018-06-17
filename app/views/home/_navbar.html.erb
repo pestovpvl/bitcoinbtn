@@ -1,15 +1,22 @@
-<%= link_to "lookup", lookup_path %>
-
 <% if !person_signed_in? %>
-
-<%= link_to "Sign Up", new_person_registration_path %>
-<%= link_to "Login", new_person_session_path %>
+    <li class="nav-item">
+        <%= link_to "Sign Up", new_person_registration_path, class: 'btn btn-primary' %>
+    </li>
+    <li class="nav-item">
+        <%= link_to "Login", new_person_session_path, class: "btn btn-primary btn-link" %>
+    </li>
 <% else %>
-
-<%= link_to "Add new", new_coin_path %>
-<%= link_to "Check Money", coins_path %>
-<%= link_to "Logout", destroy_person_session_path, method: :delete %>
-<%= link_to "Setting Accout", edit_person_registration_path %>
-
+    <li class="nav-item">
+        <%= link_to "Add new", new_coin_path, class: 'btn btn-primary btn-link' %>
+    </li>
+    <li class="nav-item">
+       <%= link_to "Check Money", coins_path, class: 'btn btn-primary btn-link' %>
+    </li>
+    <li class="nav-item">
+       <%= link_to "Logout", destroy_person_session_path, method: :delete, class: 'btn btn-primary btn-link' %>
+    </li>
+     <li class="nav-item">
+       <%= link_to "Setting Accout", edit_person_registration_path, class: 'btn btn-primary btn-link' %>
+    </li>
 <% end %>
 
