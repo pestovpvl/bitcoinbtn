@@ -1,7 +1,7 @@
 class CoinsController < ApplicationController
   before_action :set_coin, only: [:show, :edit, :update, :destroy]
   before_action :correct_person, only: [:show, :edit, :update, :destroy]
-  before_action :changeInputValue
+  before_action :edit_input_value_before_save
 
   # GET /coins
   # GET /coins.json
@@ -102,7 +102,7 @@ class CoinsController < ApplicationController
       redirect_to coins_path, notice: "Пользователи не могут просматривать монеты других участников" if @correct.nil?
     end
 
-    def changeInputValue
+    def edit_input_value_before_save
       @inputValue = Coin.new(params[:symbol])
      # Change value here
     end
