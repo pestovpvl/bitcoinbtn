@@ -5,3 +5,16 @@
 
 
 <%= link_to 'Back', coins_path %>
+
+<script>
+    jQuery(document).ready(function($) { 
+var availableTags = [
+<% for x in @show_coins_new %> 
+  '<%= x["symbol"] %> | <%= x["name"] %>',
+<% end %>
+];
+$( "#coin_symbol" ).autocomplete({
+	source: availableTags
+});
+ });
+</script>

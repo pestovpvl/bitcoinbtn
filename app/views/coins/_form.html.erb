@@ -43,16 +43,6 @@
 	<input id="autocomplete" title="type &quot;a&quot;">
 </div>
 
-<script>
-    jQuery(document).ready(function($) { 
-var availableTags = [
-<% for x in @show_coins_new %> 
-  '<%= x["symbol"] %> | <%= x["name"] %>',
-<% end %>
-];
-$( "#coin_symbol" ).autocomplete({
-	source: availableTags
-});
- });
-</script>
+
+
 <% end %>

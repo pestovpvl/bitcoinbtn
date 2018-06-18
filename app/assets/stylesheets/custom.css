@@ -1,4 +1,23 @@
-body {
-    min-height: 100vh;
+body > .container {
+    min-height: calc(100vh - 150px);
     padding: 0px;
+}
+
+.portfSummText {
+    font-size: 1.5rem;
+}
+
+
+
+.coin__item__wrap a:nth-child(1) {
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 0.3s;
+}
+.coin__item__wrap a:nth-child(2) {
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 0.6s;
+}
+.coin__item__wrap a:nth-child(3) {
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 0.9s;
 }

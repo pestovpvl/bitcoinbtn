@@ -1,0 +1,16 @@
+<h1> Look up </h1>
+
+<%= form_tag lookup_path, :method => 'POST' do %>
+  <%= text_field_tag 'sym', nil, placeholder: 'Enter Crypto Symbol', size: 50 %>
+  <%= submit_tag 'Lookup Stock Quote' %>
+<% end %>
+
+<% if @symbol %>
+  <% for x in @lookup_coins %>
+    <% if @symbol == x["symbol"] %>
+      <%= x["name"] %>: <%= x["price_usd"] %>$ | Rank: <%= x["rank"] %><br> 
+    <% end %>
+  <% end %>
+<% end %>
+
+
