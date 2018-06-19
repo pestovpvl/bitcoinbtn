@@ -21,3 +21,7 @@ body > .container {
     -webkit-animation-duration: 0.5s;
     -webkit-animation-delay: 0.9s;
 }
+
+p.change__val::after { 
+    content: "%";
+}
