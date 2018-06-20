@@ -1,48 +1,54 @@
-<%= form_with(model: coin, local: true) do |form| %>
-  <% if coin.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
 
-      <ul>
-      <% coin.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="row">
+  <div class="col-md-4">
+  </div>
+<div class="col-md-4 text-center">
+<br>
+  <div class="card card-signup p-5">
+    <%= form_with(model: coin, local: true, :html => {:class => 'form-signin'}) do |form| %>
+        <% if coin.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
+
+          <ul>
+          <% coin.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>   
+      <div class="form-signin">
+        <%= image_tag("/img/bitcoin.svg", class: "mb-4", height: '72', width: '72') %>
+          <h2 class="h3 mb-3 font-weight-normal text-uppercase">Add coin </h2>
+      </div>
+      <div class="form-label-group mb-3">
+        <!--  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""> -->
+         <%= form.text_field :symbol, placeholder: "Enter the name of the currency", :required => 'required', :class => 'form-control' %>
+      </div>
+    
+      <div class="form-label-group d-none">
+        <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""> -->
+        <%= form.number_field :person_id, value: current_person.id, type: "hidden" %>
+      </div>
+      
+      <div class="form-label-group mb-3">
+        <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""> -->
+        <%= form.text_field :cost_per, placeholder: "Price per coin", :required => 'required', :class => 'form-control' %>
+      </div>
+      <div class="form-label-group mb-3">
+        <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""> -->
+        <%= form.text_field :amount_owned, placeholder: "Amount owned", :required => 'required', :class => 'form-control' %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :symbol %>
-    <%= form.text_field :symbol %>
-  </div>
-
-  <div class="field">
-   
-    <%= form.number_field :person_id, value: current_person.id, type: "hidden" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cost_per %>
-    <%= form.text_field :cost_per %>
-  </div>
-
-  <div class="field">
-    <%= form.label :amount_owned %>
-    <%= form.text_field :amount_owned %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-
-
-
-<!-- Autocomplete -->
-<h2 class="demoHeaders">Autocomplete</h2>
-<div>
-	<input id="autocomplete" title="type &quot;a&quot;">
-</div>
-
-
-
+ 
+      <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
+ <%= form.submit "Add Coin", :class => 'btn btn-lg btn-primary btn-block' %>
+    </form>
+    </div>
+    <div class="col-md-4">
+    </div>
+     </div>
 <% end %>
+
+
+
