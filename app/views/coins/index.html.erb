@@ -74,29 +74,29 @@
       <% if coin.symbol == x["symbol"] %>
       <div class="col-md-6 wrap__each__coin">
         <div class="card card-nav-tabs">
-          <div class="card-header card-header-primary text-uppercase coin__name">
+          <h3 class="card-header card-header-primary text-uppercase coin__name">
             
             <%= x["name"] %>
-          </div>
+          </h3>
           <div class="card-body">
           <div class="row">
-             <div class="col-4">
+             <div class="col-12 col-md-4">
                 
                 <div class="change__value">
-                  <span class="badge"> <p> change 7d </p>
+                  <span class="badge badge-success w-100 mb-3 mb-md-0"> <p> change 7d </p>
                   <p class="change__val"><%=  x["percent_change_7d"] %></p>  <i class="material-icons">trending_up</i></span>    
                 </div>
               </div>
-              <div class="col-4">
+              <div class="col-12 col-md-4">
                 
                 <div class="change__value">
-                  <span class="badge"> <p> change 24h </p>
+                  <span class="badge badge-success w-100 mb-3 mb-md-0"> <p> change 24h </p>
                    <p class="change__val"><%=  x["percent_change_24h"] %></p>  <i class="material-icons">trending_up</i></span>    
                 </div>
               </div>
-              <div class="col-4">
+              <div class="col-12 col-md-4">
                 <div class="change__value">
-                  <span class="badge"> <p> change 1h </p>
+                  <span class="badge badge-success w-100 mb-3 mb-md-0"> <p> change 1h </p>
                    <p class="change__val"><%=  x["percent_change_1h"]  %></p>  <i class="material-icons">trending_up</i></span>    
                 </div>
               </div>
@@ -121,11 +121,49 @@
           </div>
         </div>
       </div>
-      <script>
+ 
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+<!-- Add new coin -->
+<div class="col-md-6">
+  <div class="card card-nav-tabs">
+    <h3 class="card-header card-header-primary text-uppercase "> 
+      Add new coin:
+    </h3>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <div id="cardAddNewCoin" class="p-4 text-center">
+            <span class="">
+              <%= link_to 'New Coin', new_coin_path, class: "btn btn-success btn-just-icon btn-fill btn-round btn-wd animated fadeIn" %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <!-- End Add new coin -->
+</div>  <!-- Close row tag -->
+</div>
+</div>  <!-- Close MainCart (Wrap) -->
+
+
+
+
+
+
+
+
+
+     <script>
     jQuery(document).ready(function($) { 
         $(".coin__item__wrap a.btn-info").html('<i class="material-icons">subject</i>');
         $(".coin__item__wrap a.btn-success").html('<i class="material-icons">mode_edit</i>');
         $(".coin__item__wrap a.btn-danger").html('<i class="material-icons">delete</i>');
+        $("#cardAddNewCoin a").html('<i class="material-icons">add</i>');
         // Change color depends value
         $( ".change__value .badge" ).each(function() {
           var value = $(this).find(".change__val");
@@ -149,23 +187,6 @@
             }
 });
 </script>
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
-</div>  <!-- Close row tag -->
-</div>
-</div>  <!-- Close MainCart (Wrap) -->
-
-
-
-<%= link_to 'New Coin', new_coin_path %>
-
-
-
-
-
-
 <script>
 jQuery(document).ready(function($) {
   // Chart #1 Start
@@ -175,6 +196,7 @@ jQuery(document).ready(function($) {
   $( ".wrap__each__coin" ).each(function() {
       // For Name
        var coinName = $(this).find(".coin__name");
+       
        var coinName = coinName.text();
        coinsNames.push(coinName);
        // For value
@@ -182,8 +204,7 @@ jQuery(document).ready(function($) {
        coinsSummary.push(coinSumm);
        
     });
-    console.log('>>>>' + coinsSummary[0]);
-    console.log('>>>>' + coinsSummary[1]);
+  
    
   
   
@@ -196,19 +217,25 @@ jQuery(document).ready(function($) {
               label: '# of Votes',
               data: coinsSummary,
               backgroundColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
+                  
+                  
+                  '#99B2DD',
+                  '#F9DEC9',
                   'rgba(153, 102, 255, 1)',
+                  
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 99, 132, 1)',
                   'rgba(255, 159, 64, 1)'
               ],
               borderColor: [
-                  'rgba(255,99,132,1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
+                 
+                 '#99B2DD',
+                  
+                  '#F9DEC9',
                   'rgba(153, 102, 255, 1)',
+                  
+                   'rgba(54, 162, 235, 1)',
+                    'rgba(255,99,132,1)',
                   'rgba(255, 159, 64, 1)'
               ],
               borderWidth: 1

@@ -25,3 +25,36 @@ body > .container {
 p.change__val::after { 
     content: "%";
 }
+#cardAddNewCoin .btn {
+    height: 50px;
+    width: 50px;
+    -webkit-transition: all 0.4s; /* Safari */
+    transition: all 0.4s;
+    
+}
+#cardAddNewCoin .btn i {
+line-height: 50px;
+    font-size: 45px;
+    -webkit-transition: all 0.4s; /* Safari */
+    transition: all 0.4s;
+}
+
+#cardAddNewCoin:hover .btn {
+    height: 60px;
+    width: 60px;
+    
+    transform: rotate(360deg);
+    -webkit-transition: all 0.4s; /* Safari */
+    transition: all 0.4s;
+}
+#cardAddNewCoin:hover .btn i {
+    -webkit-transition: all 0.4s; /* Safari */
+    transition: all 0.4s;
+    line-height: 60px;
+    font-size: 55px;
+}
+
+.card-signup input {
+    z-index: 99;
+    position: relative;
+}
