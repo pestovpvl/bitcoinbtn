@@ -1,39 +1,112 @@
 
-<p>
-  <strong>Symbol:</strong>
-  <%= @coin.symbol %>
-</p>
-
-<p>
-  <strong>Person:</strong>
-  <%= @coin.person_id %>
-</p>
-
-<p>
-  <strong>Cost per:</strong>
-  <%= @coin.cost_per %>
-</p>
-
-<p>
-  <strong>Amount owned:</strong>
-  <%= @coin.amount_owned %>
-</p>
-
-
 
 <% for x in @show_coins %>
   <% if @coin.symbol.upcase == x["symbol"] %>
     <% coin_name = x["name"] %>
-    <% coin_price = x["price"] %>
-    <% coin_rank = x["rank"] %>
-    <% else %>
- 
+    <% rank = x["rank"] %>
+    <% price_usd = x["price_usd"] %>
+    <% price_btc = x["price_btc"] %>
   
+    <% market_cap_usd = x["market_cap_usd"] %>
+    <% available_supply = x["available_supply"] %>
+    <% total_supply = x["total_supply"] %>
+    <% max_supply = x["max_supply"] %>
+    <% percent_change_1h = x["percent_change_1h"] %>
+    <% percent_change_24h = x["percent_change_24h"] %>
+    <% percent_change_7d = x["percent_change_7d"] %>
+    <% else %>
   <% end %>
 <% end %>
 
 
 
 
-<%= link_to 'Edit', edit_coin_path(@coin) %> |
-<%= link_to 'Back', coins_path %>
+
+  
+    
+
+
+
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="text-uppercase text-center mt-4">Detailed statistics</h3>
+      <table data-toggle="table">
+          <thead>
+              <tr>
+                  <th>Title</th>
+                  <th>Value</th>
+              </tr>
+          </thead>
+          <tbody>
+          <tr>
+                  <td>Coin name:</td>
+                  <td><%=  coin_name  %></td>
+              </tr>
+          <tr>
+                  <td>Rank:</td>
+                  <td><%=  rank  %></td>
+              </tr>
+              <tr>
+                  <td>Price usd:</td>
+                  <td><%=  price_usd  %></td>
+              </tr>
+              <tr>
+                  <td>Price btc:</td>
+                  <td><%=  price_btc  %></td>
+              </tr>
+              
+              <tr>
+                  <td>Market cap usd:</td>
+                  <td><%=  market_cap_usd  %></td>
+              </tr>
+              <tr>
+                  <td>Available supply:</td>
+                  <td><%=  available_supply  %></td>
+              </tr>
+              <tr>
+                  <td>Total supply:</td>
+                  <td> <%= total_supply %></td>
+              </tr>
+              <tr>
+                  <td>Max supply:</td>
+                <td>
+                  <%= max_supply  %>
+                </td>
+              </tr>
+
+              <tr>
+                  <td>Percent change 1h:</td>
+                <td>
+                  <%= percent_change_1h  %>
+                </td>
+              </tr>
+              <tr>
+                  <td>Percent change 24h:</td>
+                <td>
+                  <%= percent_change_24h  %>
+                </td>
+              </tr>
+              <tr>
+                  <td>Percent change 7d:</td>
+                <td>
+                  <%= percent_change_7d  %>
+                </td>
+              </tr>
+          </tbody>
+      </table>
+        <div class="pt-4 pb-2 text-right">
+          <%= link_to 'Edit', edit_coin_path(@coin), class:"btn btn-info"%>
+          <%= link_to 'Back', coins_path, class:"btn btn-info" %>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+

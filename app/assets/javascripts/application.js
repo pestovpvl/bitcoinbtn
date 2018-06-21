@@ -19,3 +19,4 @@
 //= material-kit.min
 //= Chart
 //= wow.min
+//= bootstrap-table
