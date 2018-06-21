@@ -58,3 +58,7 @@ line-height: 50px;
     z-index: 99;
     position: relative;
 }
+
+#wrapEditForm #formCoinName {
+    display: none;
+}

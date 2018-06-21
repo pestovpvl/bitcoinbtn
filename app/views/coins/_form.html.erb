@@ -19,25 +19,25 @@
       <% end %>   
       <div class="form-signin">
         <%= image_tag("/img/bitcoin.svg", class: "mb-4", height: '72', width: '72') %>
-          <h2 class="h3 mb-3 font-weight-normal text-uppercase">Add coin </h2>
+          <h2 id="formTextHeader" class="h3 mb-4 mt-0 font-weight-normal text-uppercase">Add coin </h2>
       </div>
-      <div class="form-label-group mb-3">
-        <!--  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""> -->
-         <%= form.text_field :symbol, placeholder: "Enter the name of the currency", :required => 'required', :class => 'form-control' %>
+      <div id="formCoinName" class="form-label-group mb-3 text-left">
+        <label for="exampleInputEmail1" >Enter the name of the currency</label>
+         <%= form.text_field :symbol, placeholder: "Start type name of currency", :required => 'required', :class => 'form-control' %>
       </div>
     
       <div class="form-label-group d-none">
-        <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""> -->
-        <%= form.number_field :person_id, value: current_person.id, type: "hidden" %>
+       
+       <%= form.number_field :person_id, value: current_person.id, type: "hidden" %>
       </div>
       
-      <div class="form-label-group mb-3">
-        <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""> -->
-        <%= form.text_field :cost_per, placeholder: "Price per coin", :required => 'required', :class => 'form-control' %>
+      <div class="form-label-group mb-3 text-left">
+       <label for="exampleInputEmail1" >The cost of one coin at the time of purchase</label>
+       <%= form.text_field :cost_per, placeholder: "Price per coin", :required => 'required', :class => 'form-control' %>
       </div>
-      <div class="form-label-group mb-3">
-        <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""> -->
-        <%= form.text_field :amount_owned, placeholder: "Amount owned", :required => 'required', :class => 'form-control' %>
+      <div class="form-label-group mb-3 text-left">
+         <label for="exampleInputEmail1" >Amount owned</label>
+       <%= form.text_field :amount_owned, placeholder: "Amount owned", :required => 'required', :class => 'form-control' %>
       </div>
     </div>
  

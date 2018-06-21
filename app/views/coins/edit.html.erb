@@ -1,6 +1,19 @@
-<h1>Editing Coin</h1>
+<div id="wrapEditForm">
+    <%= render 'form', coin: @coin %>
+    <br>
 
-<%= render 'form', coin: @coin %>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center"> 
+    <li class="page-item"><%= link_to 'Back', coins_path, class:'page-link' %></li> 
+    <li class="page-item"><%= link_to 'Show detail', @coin, class:'page-link' %></li>
+  </ul>
+</nav>
+    <script>
+jQuery(document).ready(function($) {
 
-<%= link_to 'Show', @coin %> |
-<%= link_to 'Back', coins_path %>
+var inputCoinName = $("#formCoinName input").val();
+console.log('inputCoinName' + inputCoinName);
+$( "#wrapEditForm #formTextHeader" ).text( "Edit: " + inputCoinName );
+});
+</script>
+</div>
