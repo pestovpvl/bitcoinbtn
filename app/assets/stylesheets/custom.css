@@ -62,3 +62,7 @@ line-height: 50px;
 #wrapEditForm #formCoinName {
     display: none;
 }
+
+form label {
+    color: black;
+}
