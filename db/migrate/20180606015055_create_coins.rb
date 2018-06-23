@@ -8,6 +8,7 @@ class CreateCoins < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    
     add_index :coins, :person_id
   end
 end

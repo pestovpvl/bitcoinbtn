@@ -1,0 +1,56 @@
+
+<div class="row">
+  <div class="col-md-4">
+  sold coin
+  </div>
+<div class="col-md-4 text-center">
+<br>
+  <div class="card card-signup p-5">
+    <%= form_with(model: coin, local: true, :html => {:class => 'form-signin'}) do |form| %>
+        <% if coin.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
+          <ul>
+          <% coin.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>   
+      <div class="form-signin">
+        <%= image_tag("/img/bitcoin.svg", class: "mb-4", height: '72', width: '72') %>
+          <h2 id="formTextHeader" class="h3 mb-4 mt-0 font-weight-normal text-uppercase">Add coin </h2>
+      </div>
+      <div id="formCoinName" class="form-label-group mb-3 text-left">
+        <label for="exampleInputEmail1 text-dark" >Enter the name of the currency</label>
+         <%= form.text_field :symbol, placeholder: "Start type name of currency", :required => 'required', :class => 'form-control' %>
+      </div>
+    
+      <div class="form-label-group d-none">
+       
+       <%= form.number_field :person_id, value: current_person.id, type: "hidden" %>
+      </div>
+      
+      <div class="form-label-group mb-3 text-left">
+       <label for="exampleInputEmail1 text-dark" >The cost of one coin at the time of purchase</label>
+       <%= form.text_field :cost_per, placeholder: "Price per coin", :required => 'required', :class => 'form-control' %>
+      </div>
+      <div class="form-label-group mb-3 text-left">
+         <label for="exampleInputEmail1 text-dark" >Amount owned</label>
+       <%= form.text_field :amount_owned, placeholder: "Amount owned", :required => 'required', :class => 'form-control' %>
+      </div>
+      <br>
+            <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> -->
+ <%= form.submit "submit", :class => 'btn btn-lg btn-primary btn-block form__button' %>
+    </form>
+</div>
+ 
+
+    </div>
+    <div class="col-md-4">
+    </div>
+     </div>
+<% end %>
+
+
+
