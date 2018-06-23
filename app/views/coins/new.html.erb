@@ -1,14 +1,14 @@
-<%= render 'form', coin: @coin %>
+<%= render 'form_add_new_coin', coin: @coin %>
 
 <script>
-    jQuery(document).ready(function($) { 
-var availableTags = [
-<% for x in @show_coins_new %> 
-  '<%= x["symbol"] %> | <%= x["name"] %>',
-<% end %>
-];
-$( "#coin_symbol" ).autocomplete({
-	source: availableTags
-});
+  jQuery(document).ready(function($) { 
+    var availableTags = [
+      <% for x in @show_coins_new %> 
+        '<%= x["symbol"] %> | <%= x["name"] %>',
+      <% end %>
+    ];
+    $( "#coin_symbol" ).autocomplete({
+      source: availableTags
+    });
  });
 </script>

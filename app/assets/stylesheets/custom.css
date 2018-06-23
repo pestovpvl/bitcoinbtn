@@ -23,7 +23,7 @@ body > .container {
 }
 
 p.change__val::after { 
-    content: "%";
+    content: "$";
 }
 #cardAddNewCoin .btn {
     height: 50px;

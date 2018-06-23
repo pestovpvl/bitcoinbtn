@@ -94,11 +94,11 @@ class CoinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coin_params
-      params.require(:coin).permit(:symbol, :person_id, :cost_per, :amount_owned)
+      params.require(:coin).permit(:symbol, :person_id, :cost_per, :amount_owned, :cost_per_sold, :is_it_sold)
     end
     def correct_person
       @correct = current_person.coins.find_by(id: params[:id])
-      redirect_to coins_path, notice: "Пользователи не могут просматривать монеты других участников" if @correct.nil?
+      redirect_to coins_path, notice: "Users can not view coins of other participants" if @correct.nil?
     end
 
     
