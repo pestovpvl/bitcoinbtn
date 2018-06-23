@@ -16,7 +16,6 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery-ui 
-//= material-kit.min
 //= Chart
 //= wow.min
-//= bootstrap-table
+

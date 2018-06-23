@@ -1,234 +1,262 @@
-
 <div class="card">
   <div class="card-body">
-<h3 class="text-uppercase text-center mt-4">Portfolio summary:</h3>
-<div class="row">
-  <div class="col-md-6 pb-5">
-    <div class="card p-3">
-      <p> The cost of individual crypto currency <strong>at the moment:</strong> </p>
-      <canvas id="myChart" width="100%" height="100%"></canvas>
-    </div>
-  </div>
-  <div class="col-md-6">
-  
-    <div class="card p-3">
-  <div class="rounded bg-info m-3 p-2">
-      <div class="card-body">
-        <h5 class="text-uppercase font-weight-bold text-white mt-3 mb-3">
-            Money amount:<br> <span class="portfSummText"> $ </span><span class="portfSummText" id="moneyPortfAmount"></span> 
-        </h5>  
+    <h3 class="text-uppercase text-center mt-4">Portfolio summary:</h3>
+    <div class="row">
+      <div class="col-md-6 pb-5">
+        <div class="card p-3">
+          <p> The cost of individual crypto currency
+            <strong>at the moment:</strong>
+          </p>
+          <canvas id="myChart" width="100%" height="100%"></canvas>
+        </div>
       </div>
-    </div>
-  
-  <div id='wrapPortfSumm' class="rounded m-3 p-2">
-      <div class="card-body">
-        <h5 class="text-uppercase font-weight-bold text-white mt-3 mb-3">
-            profit / lost:<br><span class="portfSummText" id="moneyPortfLost"></span> <span class="portfSummText">$</span>
-        </h5>  
-      </div>
-    </div>
-    </div>
-  </div>
-</div>
-<script>
-  jQuery(document).ready(function($) { 
-    var profitLost = 0;
-    var curientVal = 0;   
-        $('.proit__lost').each(function()
-        {
-            profitLost += parseFloat($(this).text());
-        });
-        $('.curientValue').each(function()
-        {
-            curientVal += parseFloat($(this).text());
-        });
-    $('#moneyPortfAmount').text(curientVal.toFixed(2));
-    $('#moneyPortfLost').text(profitLost.toFixed(2));
- });
-</script>
-
-<div class="row">
-  <div class="col-12 mt-4 mb-1">
-    <h3 class="text-uppercase text-center">Detail information for each coins:</h3>
-  </div>
-</div>
-<div class="row">
- <% @coins.each do |coin| %>
- 
-<!-- *** -->
-<!-- If the coin does not matter in the cost_per_sold field, then it is not sold. And you need to show it here  -->
-<!-- *** -->
-  <% if coin.person_id == current_person.id && coin.cost_per_sold.blank? %>
-    <% if coin.symbol %>
-      <% coin.symbol = coin.symbol.upcase %>
-    <% end %>
-    <% for x in @lookup_coins %> 
-      <% if coin.symbol == x["symbol"] %>
-      <div class="col-md-6 wrap__each__coin">
-        <div class="card card-nav-tabs">
-          <h3 class="card-header card-header-primary text-uppercase coin__name">
-            
-            <%= x["name"] %> = <%= number_with_precision(x["price_usd"].to_d, precision: 2) %>$
-          </h3>
-          <div class="card-body">
-          <div class="row">
-             <div class="col-12 col-md-4">
-                
-                <div class="change__value">
-                  <span class="badge badge-success w-100 mb-3 mb-md-0"> <p> change 7d </p>
-                  <p class="change__val"><%=  x["percent_change_7d"] %></p>  <i class="material-icons">trending_up</i></span>    
-                </div>
-              </div>
-              <div class="col-12 col-md-4">
-                
-                <div class="change__value">
-                  <span class="badge badge-success w-100 mb-3 mb-md-0"> <p> change 24h </p>
-                   <p class="change__val"><%=  x["percent_change_24h"] %></p>  <i class="material-icons">trending_up</i></span>    
-                </div>
-              </div>
-              <div class="col-12 col-md-4">
-                <div class="change__value">
-                  <span class="badge badge-success w-100 mb-3 mb-md-0"> <p> change 1h </p>
-                   <p class="change__val"><%=  x["percent_change_1h"]  %></p>  <i class="material-icons">trending_up</i></span>    
-                </div>
-              </div>
-              
-              
+      <div class="col-md-6">
+        <div class="card p-3">
+          <div class="rounded bg-info m-3 p-2">
+            <div class="card-body">
+              <h5 class="text-uppercase font-weight-bold text-white mt-3 mb-3">
+                Money amount:
+                <br>
+                <span class="portfSummText"> $ </span>
+                <span class="portfSummText" id="moneyPortfAmount"></span>
+              </h5>
             </div>
-            <div class="row static2row mt-2 mb-2">
-              <div class="col-12">
-                <div class="change__value">
-                  <span class="badge w-100"> <p class="m-3"> Profit / Lost: </p>
-                  <p class="change__val proit__lost m-3"><% curval = (x["price_usd"].to_d * coin.amount_owned) - (coin.cost_per * coin.amount_owned) %> <%= number_with_precision(curval.to_d, precision: 2) %></p></span>    
-                </div>
-              </div> 
-            </div>
-            <div class="text-white bg-info p-2 mt-2 curr__value__coin"><h5 class="text-white text-uppercase text-center font-weight-bold m-0 align-middle pt-3 pb-3">The current value of coins: $<span class="curientValue"> <%= number_with_precision(x["price_usd"].to_d * coin.amount_owned, precision: 2) %> </span></h5></div>
-            <br>
-            <div class="footer text-center coin__item__wrap">
-              <%= link_to 'Show', coin, class: "btn btn-info btn-just-icon btn-fill btn-round animated fadeIn" %>
-              <%= link_to 'Edit', edit_coin_path(coin), class: "btn btn-success btn-just-icon btn-fill btn-round btn-wd animated fadeIn" %>
-              <%= link_to 'Destroy', coin, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-just-icon btn-fill btn-round animated fadeIn" %>       
+          </div>
+          <div id='wrapPortfSumm' class="rounded m-3 p-2">
+            <div class="card-body">
+              <h5 class="text-uppercase font-weight-bold text-white mt-3 mb-3">
+                profit / lost:
+                <br>
+                <span class="portfSummText" id="moneyPortfLost"></span>
+                <span class="portfSummText">$</span>
+              </h5>
             </div>
           </div>
         </div>
+        <!-- close card p-3 -->
       </div>
- 
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
-<!-- Add new coin -->
-<div class="col-md-6">
-  <div class="card card-nav-tabs">
-    <h3 class="card-header card-header-primary text-uppercase "> 
-      Add new coin:
-    </h3>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-12">
-          <div id="cardAddNewCoin" class="p-4 text-center">
-            <span class="">
-              <%= link_to 'New Coin', new_coin_path, class: "btn btn-success btn-just-icon btn-fill btn-round btn-wd animated fadeIn" %>
-            </span>
-          </div>
-        </div>
+      <!-- close col-md-6 -->
+    </div>
+    <!-- close col-md-6 -->
+    <script>
+      jQuery(document).ready(function ($) {
+        var profitLost = 0;
+        var curientVal = 0;
+        $('.proit__lost').each(function () {
+          profitLost += parseFloat($(this).text());
+        });
+        $('.curientValue').each(function () {
+          curientVal += parseFloat($(this).text());
+        });
+        $('#moneyPortfAmount').text(curientVal.toFixed(2));
+        $('#moneyPortfLost').text(profitLost.toFixed(2));
+      });
+    </script>
+
+    <div class="row">
+      <div class="col-12 mt-4 mb-1">
+        <h3 class="text-uppercase text-center">Detail information for each coins:</h3>
       </div>
     </div>
+    <div class="row">
+      <% @coins.each do |coin| %>
+        <!-- *** -->
+        <!-- If the coin does not matter in the cost_per_sold field, then it is not sold. And you need to show it here  -->
+        <!-- *** -->
+        <% if coin.person_id == current_person.id && coin.cost_per_sold.blank? %>
+          <% if coin.symbol %>
+            <% coin.symbol = coin.symbol.upcase %>
+              <% end %>
+                <% for x in @lookup_coins %>
+                  <% if coin.symbol == x["symbol"] %>
+                    <div class="col-md-6 wrap__each__coin">
+                      <div class="card card-nav-tabs">
+                        <h3 class="card-header card-header-primary text-uppercase coin__name">
+                          <%= x["name"] %> =
+                            <%= number_with_precision(x["price_usd"].to_d, precision: 2) %>$
+                        </h3>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-12 col-md-4">
+                              <div class="change__value">
+                                <span class="badge badge-success w-100 mb-3 mb-md-0">
+                                  <p> change 7d </p>
+                                  <p class="change__val">
+                                    <%=  x["percent_change_7d"] %>
+                                  </p>
+                                  <i class="material-icons">trending_up</i>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                              <div class="change__value">
+                                <span class="badge badge-success w-100 mb-3 mb-md-0">
+                                  <p> change 24h </p>
+                                  <p class="change__val">
+                                    <%=  x["percent_change_24h"] %>
+                                  </p>
+                                  <i class="material-icons">trending_up</i>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                              <div class="change__value">
+                                <span class="badge badge-success w-100 mb-3 mb-md-0">
+                                  <p> change 1h </p>
+                                  <p class="change__val">
+                                    <%=  x["percent_change_1h"]  %>
+                                  </p>
+                                  <i class="material-icons">trending_up</i>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- END row -->
+                          <div class="row static2row mt-2 mb-2">
+                            <div class="col-12">
+                              <div class="change__value">
+                                <span class="badge w-100">
+                                  <p class="m-3"> Profit / Lost: </p>
+                                  <p class="change__val proit__lost m-3">
+                                    <% curval = (x["price_usd"].to_d * coin.amount_owned) - (coin.cost_per * coin.amount_owned) %>
+                                      <%= number_with_precision(curval.to_d, precision: 2) %>
+                                  </p>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- END row -->
+                          <div class="text-white bg-info p-2 mt-2 curr__value__coin">
+                            <h5 class="text-white text-uppercase text-center font-weight-bold m-0 align-middle pt-3 pb-3">The current value of coins: $
+                              <span class="curientValue">
+                                <%= number_with_precision(x["price_usd"].to_d * coin.amount_owned, precision: 2) %>
+                              </span>
+                            </h5>
+                          </div>
+                          <br>
+                          <div class="footer text-center coin__item__wrap">
+                            <%= link_to 'Show', coin, class: "btn btn-info btn-just-icon btn-fill btn-round animated fadeIn" %>
+                              <%= link_to 'Edit', edit_coin_path(coin), class: "btn btn-success btn-just-icon btn-fill btn-round btn-wd animated fadeIn" %>
+                                <%= link_to 'Destroy', coin, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-just-icon btn-fill btn-round animated fadeIn" %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <% end %>
+                      <% end %>
+                        <% end %>
+                          <% end %>
+                            <!-- Add new coin -->
+                            <div class="col-md-6">
+                              <div class="card card-nav-tabs">
+                                <h3 class="card-header card-header-primary text-uppercase ">
+                                  Add new coin:
+                                </h3>
+                                <div class="card-body">
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <div id="cardAddNewCoin" class="p-4 text-center">
+                                        <span class="">
+                                          <%= link_to 'New Coin', new_coin_path, class: "btn btn-success btn-just-icon btn-fill btn-round btn-wd animated fadeIn" %>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- End Add new coin -->
+    </div> <!-- Close row tag -->
   </div>
 </div>
-      <!-- End Add new coin -->
-</div>  <!-- Close row tag -->
-</div>
-</div>  <!-- Close MainCart (Wrap) -->
+<!-- Close MainCart (Wrap) -->
 
 
-     <script>
-    jQuery(document).ready(function($) { 
-        $(".coin__item__wrap a.btn-info").html('<i class="material-icons">subject</i>');
-        $(".coin__item__wrap a.btn-success").html('<i class="material-icons">mode_edit</i>');
-        $(".coin__item__wrap a.btn-danger").html('<i class="material-icons">delete</i>');
-        $("#cardAddNewCoin a").html('<i class="material-icons">add</i>');
-        // Change color depends value
-        $( ".change__value .badge" ).each(function() {
-          var value = $(this).find(".change__val");
-          var value = value.text();
-            if(value >= 0) {
-              $(this).addClass('badge-success');
-            }
-            else {
-              $(this).addClass('badge-danger');
-              $(this).find(".material-icons").text('trending_down');
-            }
-        });
-        // Change color Summary
-        var value = $( "#wrapPortfSumm #moneyPortfLost");
-        var value = value.text();
-        if(value >= 0) {
-              $('#wrapPortfSumm').addClass('bg-success');
-            }
-            else {
-              $('#wrapPortfSumm').addClass('bg-danger');
-            }
-});
+<script>
+  jQuery(document).ready(function ($) {
+    $(".coin__item__wrap a.btn-info").html('<i class="material-icons">subject</i>');
+    $(".coin__item__wrap a.btn-success").html('<i class="material-icons">mode_edit</i>');
+    $(".coin__item__wrap a.btn-danger").html('<i class="material-icons">delete</i>');
+    $("#cardAddNewCoin a").html('<i class="material-icons">add</i>');
+    // Change color depends value
+    $(".change__value .badge").each(function () {
+      var value = $(this).find(".change__val");
+      var value = value.text();
+      if (value >= 0) {
+        $(this).addClass('badge-success');
+      } else {
+        $(this).addClass('badge-danger');
+        $(this).find(".material-icons").text('trending_down');
+      }
+    });
+    // Change color Summary
+    var value = $("#wrapPortfSumm #moneyPortfLost");
+    var value = value.text();
+    if (value >= 0) {
+      $('#wrapPortfSumm').addClass('bg-success');
+    } else {
+      $('#wrapPortfSumm').addClass('bg-danger');
+    }
+  });
 </script>
 <script>
-jQuery(document).ready(function($) {
-  // Chart #1 Start
-  var coinsNames = [];
-  var coinsSummary = [];
+  jQuery(document).ready(function ($) {
+    // Chart #1 Start
+    var coinsNames = [];
+    var coinsSummary = [];
 
-  $( ".wrap__each__coin" ).each(function() {
+    $(".wrap__each__coin").each(function () {
       // For Name
-       var coinName = $(this).find(".coin__name");
-       
-       var coinName = coinName.text();
-       coinsNames.push(coinName);
-       // For value
-       var coinSumm =  $(this).find(".curr__value__coin .curientValue").text() ;
-       coinsSummary.push(coinSumm);
-       
+      var coinName = $(this).find(".coin__name");
+
+      var coinName = coinName.text();
+      coinsNames.push(coinName);
+      // For value
+      var coinSumm = $(this).find(".curr__value__coin .curientValue").text();
+      coinsSummary.push(coinSumm);
+
     });
 
 
 
-  
-  var ctx = document.getElementById("myChart").getContext('2d');
-  var myChart = new Chart(ctx, {
+
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
       type: 'pie',
       data: {
-          labels: coinsNames,
-          datasets: [{
-              label: '# of Votes',
-              data: coinsSummary,
-              backgroundColor: [
-                  
-                  
-                  '#99B2DD',
-                  '#F9DEC9',
-                  'rgba(153, 102, 255, 1)',
-                  
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderColor: [
-                 
-                 '#99B2DD',
-                  
-                  '#F9DEC9',
-                  'rgba(153, 102, 255, 1)',
-                  
-                   'rgba(54, 162, 235, 1)',
-                    'rgba(255,99,132,1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
+        labels: coinsNames,
+        datasets: [{
+          label: '# of Votes',
+          data: coinsSummary,
+          backgroundColor: [
+
+
+            '#99B2DD',
+            '#F9DEC9',
+            'rgba(153, 102, 255, 1)',
+
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderColor: [
+
+            '#99B2DD',
+
+            '#F9DEC9',
+            'rgba(153, 102, 255, 1)',
+
+            'rgba(54, 162, 235, 1)',
+            'rgba(255,99,132,1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
       },
 
+    });
+    // Chart #1 End
+
   });
-  // Chart #1 End
-  
-});
 </script>
