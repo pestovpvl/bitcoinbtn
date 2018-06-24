@@ -18,4 +18,6 @@
 //= require jquery-ui 
 //= Chart
 //= wow.min
+//= easepack.min
+//= tweenlite.min
 

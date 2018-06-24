@@ -1,28 +1,29 @@
 <% if !person_signed_in? %>
     <li class="nav-item">
-        <%= link_to "Sign Up", new_person_registration_path, class: 'btn btn-primary' %>
+        <%= link_to t('sign_up'), new_person_registration_path, class: 'btn btn-primary' %>
     </li>
     <li class="nav-item">
-        <%= link_to "Login", new_person_session_path, class: "btn btn-primary btn-link" %>
+        <%= link_to t('login'), new_person_session_path, class: "btn btn-primary btn-link" %>
     </li>
 <% else %>
      <li class="nav-item">
-        <%= link_to "Portfolio Summary", coins_path, class: 'btn btn-primary btn-link' %>
-    </li>
-
-    <li class="nav-item">
-        <%= link_to "Add new", new_coin_path, class: 'btn btn-primary btn-link' %>
+        <%= link_to t('portfolio'), coins_path, class: 'btn btn-primary btn-link' %>
     </li>
 
      <li class="nav-item">
-        <%= link_to "History", history_path, class: 'btn btn-primary btn-link' %>
+        <%= link_to  t('history'), history_path, class: 'btn btn-primary btn-link' %>
     </li>
+    <li class="nav-item">
+        <%= link_to t('add_new_coin'), new_coin_path, class: 'btn btn-primary btn-link' %>
+    </li>
+
    
-    <li class="nav-item">
-       <%= link_to "Logout", destroy_person_session_path, method: :delete, class: 'btn btn-primary btn-link' %>
-    </li>
+    
      <li class="nav-item">
-       <%= link_to "Setting Accout", edit_person_registration_path, class: 'btn btn-primary btn-link' %>
+       <%= link_to t('setting_account'), edit_person_registration_path, class: 'btn btn-primary btn-link' %>
+    </li>
+    <li class="nav-item">
+       <%= link_to t('logout'), destroy_person_session_path, method: :delete, class: 'btn btn-primary btn-link' %>
     </li>
 <% end %>
 
