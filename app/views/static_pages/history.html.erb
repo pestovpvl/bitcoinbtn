@@ -1,64 +1,22 @@
 <div class="card">
   <div class="card-body">
-    <h3 class="text-uppercase text-center mt-4">Sell history:</h3>
-    <div class="row pb-5">
-      <div class="col-12">
-        <div class="change__value">
-          <span class="badge w-100 badge-success">
-            <p class="m-3"> Profit / Lost: </p>
-            <p id="historyProfLost" class="change__val m-3"></p>
-          </span>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <% @coins.each do |coin| %>
-        <!-- *** -->
-        <!-- If the coin does not matter in the cost_per_sold field, then it is not sold. And you need to show it here  -->
-        <!-- *** -->
-        <% if coin.person_id == current_person.id && coin.cost_per_sold %>
-          <% if coin.symbol %>
-            <% coin.symbol = coin.symbol.upcase %>
-              <% end %>
-                <% for x in @lookup_coins %>
-                  <% if coin.symbol == x["symbol"] %>
-                    <div class="col-md-6 wrap__each__coin">
-                      <div class="card card-nav-tabs">
-                        <h3 class="card-header card-header-primary text-uppercase coin__name">
-                          <%= x["name"] %>
-                        </h3>
-                        <div class="card-body">
-                          
-                          <!-- END row -->
-                          <div class="row static2row mt-2 mb-2">
-                            <div class="col-12">
-                              <div class="change__value">
-                                <span class="badge w-100">
-                                  <p class="m-3"> Profit / Lost: </p>
-                                  <p class="change__val proit__lost m-3">
-                                    <% profit_lost_coin = (coin.cost_per_sold * coin.amount_owned) - (coin.cost_per * coin.amount_owned) %>
-                         <%= profit_lost_coin %>
-                                  </p>
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <br>
-                          <div class="footer text-center coin__item__wrap">
-                            <%= link_to 'Destroy', coin, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-just-icon btn-fill btn-round animated fadeIn" %>
-                         
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <% end %>
-                      <% end %>
-                        <% end %>
-                          <% end %>
-                           
-    </div> <!-- Close row tag -->
+  <% @soldcount = 0 %>
+    <% @coins.each do |coin| %>
+      <% if coin.person_id == current_person.id %>
+        <% if coin.cost_per_sold.blank? %>  
+        <% else %>
+            <% @soldcount += 1 %>
+        <% end %>
+      <% end %>
+    <% end %> 
+    <!-- Render content -->  
+    <% if (@soldcount >= 1) %>
+      <%= render 'static_pages/if_history_not_empty' %>
+    <% else %>
+      <%= render 'static_pages/history_empty' %>
+    <% end %>
+   
+      <br>
   </div>
 </div>
 <!-- Close MainCart (Wrap) -->
