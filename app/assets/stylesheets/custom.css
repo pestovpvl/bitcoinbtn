@@ -21,10 +21,14 @@ body > .container {
     -webkit-animation-duration: 0.5s;
     -webkit-animation-delay: 0.9s;
 }
-
 p.change__val::after { 
     content: "$";
 }
+
+.col-md-4 p.change__val::after { 
+    content: "%";
+}
+
 #cardAddNewCoin .btn {
     height: 50px;
     width: 50px;
@@ -63,6 +67,6 @@ line-height: 50px;
     display: none;
 }
 
-form label {
+form label, .text-black {
     color: black;
 }
