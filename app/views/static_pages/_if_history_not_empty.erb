@@ -1,9 +1,9 @@
- <h3 class="text-uppercase text-center mt-4">Sell history:</h3>
+ <h3 class="text-uppercase text-center mt-4"><%= t('history') %></h3>
     <div class="row pb-5">
       <div class="col-12">
         <div class="change__value">
           <span class="badge w-100 badge-success">
-            <p class="m-3"> Profit / Lost: </p>
+            <p class="m-3"><%= t('profit_lost') %> </p>
             <p id="historyProfLost" class="change__val m-3"></p>
           </span>
         </div>
@@ -32,7 +32,7 @@
                             <div class="col-12">
                               <div class="change__value">
                                 <span class="badge w-100">
-                                  <p class="m-3"> Profit / Lost: </p>
+                                  <p class="m-3"> <%= t('profit_lost') %> </p>
                                   <p class="change__val proit__lost m-3">
                                     <% profit_lost_coin = (coin.cost_per_sold * coin.amount_owned) - (coin.cost_per * coin.amount_owned) %>
                          <%= profit_lost_coin %>

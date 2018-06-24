@@ -1,11 +1,10 @@
 <div class="card">
   <div class="card-body">
-    <h3 class="text-uppercase text-center mt-4">Portfolio summary:</h3>
+    <h3 class="text-uppercase text-center mt-4"><%= t('portfolio') %></h3>
     <div class="row">
       <div class="col-md-6 pb-5">
         <div class="card p-3">
-          <p> The cost of individual crypto currency
-            <strong>at the moment:</strong>
+          <p> <%= t('individual_cost') %>
           </p>
           <canvas id="myChart" width="100%" height="100%"></canvas>
         </div>
@@ -15,7 +14,7 @@
           <div class="rounded bg-info m-3 p-2">
             <div class="card-body">
               <h5 class="text-uppercase font-weight-bold text-white mt-3 mb-3">
-                Money amount:
+                <%= t('money_amount') %>
                 <br>
                 <span class="portfSummText"> $ </span>
                 <span class="portfSummText" id="moneyPortfAmount"></span>
@@ -25,7 +24,7 @@
           <div id='wrapPortfSumm' class="rounded m-3 p-2">
             <div class="card-body">
               <h5 class="text-uppercase font-weight-bold text-white mt-3 mb-3">
-                profit / lost:
+                <%= t('profit_lost') %>
                 <br>
                 <span class="portfSummText" id="moneyPortfLost"></span>
                 <span class="portfSummText">$</span>
@@ -55,7 +54,7 @@
 
     <div class="row">
       <div class="col-12 mt-4 mb-1">
-        <h3 class="text-uppercase text-center">Detail information for each coins:</h3>
+        <h3 class="text-uppercase text-center"><%= t('portfolio_detail') %></h3>
       </div>
     </div>
     <div class="row">
@@ -80,7 +79,7 @@
                             <div class="col-12 col-md-4">
                               <div class="change__value">
                                 <span class="badge badge-success w-100 mb-3 mb-md-0">
-                                  <p> change 7d </p>
+                                  <p> <%= t('change') %> 7<%= t('d') %> </p>
                                   <p class="change__val">
                                     <%=  x["percent_change_7d"] %>
                                   </p>
@@ -91,7 +90,7 @@
                             <div class="col-12 col-md-4">
                               <div class="change__value">
                                 <span class="badge badge-success w-100 mb-3 mb-md-0">
-                                  <p> change 24h </p>
+                                  <p> <%= t('change') %> 24<%= t('hs') %> </p>
                                   <p class="change__val">
                                     <%=  x["percent_change_24h"] %>
                                   </p>
@@ -102,7 +101,7 @@
                             <div class="col-12 col-md-4">
                               <div class="change__value">
                                 <span class="badge badge-success w-100 mb-3 mb-md-0">
-                                  <p> change 1h </p>
+                                  <p> <%= t('change') %> 1<%= t('h') %> </p>
                                   <p class="change__val">
                                     <%=  x["percent_change_1h"]  %>
                                   </p>
@@ -116,7 +115,7 @@
                             <div class="col-12">
                               <div class="change__value">
                                 <span class="badge w-100">
-                                  <p class="m-3"> Profit / Lost: </p>
+                                  <p class="m-3"> <%= t('profit_lost') %> </p>
                                   <p class="change__val proit__lost m-3">
                                     <% curval = (x["price_usd"].to_d * coin.amount_owned) - (coin.cost_per * coin.amount_owned) %>
                                       <%= number_with_precision(curval.to_d, precision: 2) %>
@@ -127,7 +126,7 @@
                           </div>
                           <!-- END row -->
                           <div class="text-white bg-info p-2 mt-2 curr__value__coin">
-                            <h5 class="text-white text-uppercase text-center font-weight-bold m-0 align-middle pt-3 pb-3">The current value of coins: $
+                            <h5 class="text-white text-uppercase text-center font-weight-bold m-0 align-middle pt-3 pb-3"> <%= t('profit_lost') %>: $
                               <span class="curientValue">
                                 <%= number_with_precision(x["price_usd"].to_d * coin.amount_owned, precision: 2) %>
                               </span>
@@ -151,7 +150,8 @@
                             <div class="col-md-6">
                               <div class="card card-nav-tabs">
                                 <h3 class="card-header card-header-primary text-uppercase ">
-                                  Add new coin:
+                                  <%= t('add_new_coin') %>
+                               
                                 </h3>
                                 <div class="card-body">
                                   <div class="row">
