@@ -126,7 +126,7 @@
                           </div>
                           <!-- END row -->
                           <div class="text-white bg-info p-2 mt-2 curr__value__coin">
-                            <h5 class="text-white text-uppercase text-center font-weight-bold m-0 align-middle pt-3 pb-3"> <%= t('profit_lost') %>: $
+                            <h5 class="text-white text-uppercase text-center font-weight-bold m-0 align-middle pt-3 pb-3"> <%= t('money_amount') %>: $
                               <span class="curientValue">
                                 <%= number_with_precision(x["price_usd"].to_d * coin.amount_owned, precision: 2) %>
                               </span>
