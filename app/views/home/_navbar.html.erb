@@ -1,29 +1,79 @@
 <% if !person_signed_in? %>
-    <li class="nav-item">
-        <%= link_to t('sign_up'), new_person_registration_path, class: 'btn btn-primary' %>
-    </li>
-    <li class="nav-item">
-        <%= link_to t('login'), new_person_session_path, class: "btn btn-primary btn-link" %>
-    </li>
+   <nav class="navbar navbar-expand-lg bg-primary">
+                    <div class="container">
+                        <div class="navbar-translate">
+                            <a class="navbar-brand" href="/">BITCOINBTN.ru</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                                <span class="navbar-toggler-icon"></span>
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <%= link_to t('sign_up'), new_person_registration_path, class: 'nav-link nav__sign-up' %>
+                                </li>
+                                <li class="nav-item">
+                                    <%= link_to t('login'), new_person_session_path, class: "nav-link nav__login" %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <script>
+    jQuery(document).ready(function ($) {
+        $("a.nav__sign-up").prepend('<i class="material-icons">explore</i> ');
+        $("a.nav__login").prepend('<i class="material-icons">explore</i> ');
+    });
+</script>
 <% else %>
-     <li class="nav-item">
-        <%= link_to t('portfolio'), coins_path, class: 'btn btn-primary btn-link' %>
-    </li>
+            <nav class="navbar navbar-expand-lg bg-primary">
+                    <div class="container">
+                        <div class="navbar-translate">
+                           <a class="navbar-brand" href="/">BITCOINBTN.ru</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                                <span class="navbar-toggler-icon"></span>
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
 
-     <li class="nav-item">
-        <%= link_to  t('history'), history_path, class: 'btn btn-primary btn-link' %>
-    </li>
-    <li class="nav-item">
-        <%= link_to t('add_new_coin'), new_coin_path, class: 'btn btn-primary btn-link' %>
-    </li>
-
-   
-    
-     <li class="nav-item">
-       <%= link_to t('setting_account'), edit_person_registration_path, class: 'btn btn-primary btn-link' %>
-    </li>
-    <li class="nav-item">
-       <%= link_to t('logout'), destroy_person_session_path, method: :delete, class: 'btn btn-primary btn-link' %>
-    </li>
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <%= link_to t('portfolio'), coins_path, class: 'nav-link nav__portfolio' %>
+                                </li>
+                                <li class="nav-item">
+                                   <%= link_to  t('history'), history_path, class: 'nav-link nav__history' %>
+                                </li>
+                                <li class="nav-item">
+                                   <%= link_to t('add_new_coin'), new_coin_path, class: 'nav-link nav__add-coin' %>
+                                </li>
+                                <li class="nav-item">
+                                   <%= link_to t('setting_account'), edit_person_registration_path, class: 'nav-link nav__setting-account' %>
+                                </li>
+                                <li class="nav-item">
+                                  <%= link_to t('logout'), destroy_person_session_path, method: :delete, class: 'nav-link nav__logout' %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <script>
+    jQuery(document).ready(function ($) {
+        $("a.nav__portfolio").prepend('<i class="material-icons">explore</i> ');
+        $("a.nav__history").prepend('<i class="material-icons">explore</i> ');
+        $("a.nav__add-coin").prepend('<i class="material-icons">explore</i> ');
+        $("a.nav__setting-account").prepend('<i class="material-icons">explore</i> ');
+        $("a.nav__logout").prepend('<i class="material-icons">explore</i> ');
+    });
+</script>
 <% end %>
+
+
+
+
+
 

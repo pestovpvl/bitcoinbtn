@@ -34,7 +34,7 @@
                                 <span class="badge w-100">
                                   <p class="m-3"> <%= t('profit_lost') %> </p>
                                   <p class="change__val proit__lost m-3">
-                                    <% profit_lost_coin = (coin.cost_per_sold * coin.amount_owned) - (coin.cost_per * coin.amount_owned) %>
+                                    <% profit_lost_coin = (coin.cost_per_sold * coin.amount_owned).to_i - (coin.cost_per * coin.amount_owned).to_i %>
                          <%= profit_lost_coin %>
                                   </p>
                                 </span>
