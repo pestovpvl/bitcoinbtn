@@ -7,6 +7,9 @@ body > .container {
     font-size: 1.5rem;
 }
 
+body {
+    background: linear-gradient(to bottom right, #D7BBEA, #65A8F1);
+}
 
 
 .coin__item__wrap a:nth-child(1) {
@@ -146,9 +149,19 @@ form label, .text-black {
 }
 
 #mainContainer {
-    min-height: calc(100vh - 110px);
+    min-height: calc(100vh - 50px);
+        background-image: url(/img/bg-pattern2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding-top: 20px;
 }
 
+.table__for__center {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
 body {
     overflow-x: hidden;
 }
@@ -159,4 +172,8 @@ body {
 
 .table__for__center {
     min-height: 80vh;
+}
+
+.navbar {
+ margin-bottom: 0px!important;   
 }

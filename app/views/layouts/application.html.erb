@@ -2,6 +2,7 @@
 <html>
   <head>
     <title> <%= t('problem1') %>. <%= t('problem2') %></title>
+   <meta name="theme-color" content="#9c27b0" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,7 +20,7 @@
 <%= render 'home/navbar' %>
 
 
-<div id='mainContainer' class="container-fluid">
+<div id='mainContainer' class="container">
         <%= render 'home/flash' %>
         <%= yield %>
 </div>
