@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
@@ -77,84 +76,4 @@ en:
   cancel_acc: 'Delete account'
   back: 'back'
   update: 'Update'
-=======
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
-en:
-  hello: 'Hello world'
-  header: 'Keep track of your crypto coins'
-  sub_header: 'Create an account and add your coins. And watch in real time. How much do they cost in sum and separately'
-  free: 'The service is absolutely free, you can delete the account anytime'
-  header: 'Service will solve at least 2 problems'
-  problem1: 'Buying currency at different sites is difficult to calculate how much money you have at the moment'
-  problem2: 'The service saves the history of the sale of the currency and shows the result in the amount.'
-  read_more: 'Read more'
-  sign_up: 'Register'
-  login: 'Login'
-  portfolio: 'portfolio'
-  confirm_password: 'Re-enter the password'
-  password: 'Enter password'
-  email: 'Your email'
-  portfolio: 'Your coins'
-  add_new_coin: 'Add a coin'
-  history: 'Sales history'
-  logout: 'Exit'
-  setting_account: 'Account settings'
-  descr_after_login_home: 'You can add a new coin to the portfolio or see the status of the current coins'
-  descr_after_login_home_p: 'To start creating a Crypto-currency portfolio, you need to add a coin'
-  portfolio_detail: 'Details'
-  individual_cost: 'The cost of your pock for each of the crypto currency:'
-  money_amount: 'The total value of your portfolio'
-  profit_lost: 'Profit / loss'
-  change: 'Change'
-  d: 'days'
-  hs: 'hours'
-  h: 'hour'
-  history_h: 'The history is empty. You did not sell coins'
-  history_p: 'To sell a coin, follow the instructions below'
-  history_instr1: 'Go to the "Your coins" section, then click on the "edit" icon'
-  history_instr2: 'In the lowest form, indicate the rate at which the coin'
-  name_cur: 'Enter the name of the crypto'
-  name_cur_plh: 'Start typing the name'
-  cur_price: 'The rate at the time of buying coins'
-  cur_price_plh: 'Price for one monetu'
-  amount: 'Total number of coins'
-  edit_profile: 'Edit profile'
-  leave: 'Leave the field blank if you do not want to change the password'
-  confirm: 'Enter your current password to confirm'
-  minimum: 'minimum characters'
-  unhappy: 'Dissatisfied'
-  cancel_acc: 'Delete account'
-  back: 'back'
-  update: 'Update'
->>>>>>> 3a4b2815508c1ce20131418a7fee9f27aa19feef
   portfolio_empty: 'There are no coins in your portfolio, please add a coin'
