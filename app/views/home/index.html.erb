@@ -23,7 +23,7 @@
     
 <% else %>
 
-    <!-- Render content -->  
+    <!-- Render content  -->  
     <% if 0 < (Coin.where(person_id: current_person.id).count) %>
     <!-- If User have coin --> 
       <%= render 'static_pages/home_have_coin' %>
