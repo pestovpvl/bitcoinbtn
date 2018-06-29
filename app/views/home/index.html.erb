@@ -22,21 +22,14 @@
 </table>
     
 <% else %>
-<% @soldcount = 0 %>
-    <% @coins.each do |coin| %>
-      <% if coin.person_id == current_person.id %>
-        <% if coin.cost_per_sold.blank? %>  
-        <% else %>
-            <% @soldcount += 1 %>
-        <% end %>
-      <% end %>
-    <% end %> 
+
     <!-- Render content -->  
-    <% if (@soldcount >= 1) %>
+    <% if (Coin.where(person_id: 2).count) %>
     <!-- If User have coin --> 
       <%= render 'static_pages/home_have_coin' %>
     <% else %>
     <!-- If User did't coin --> 
+
       <%= render 'static_pages/home_have_not_coin' %>
     <% end %>
 <% end %>
