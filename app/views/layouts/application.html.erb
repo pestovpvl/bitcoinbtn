@@ -51,6 +51,27 @@
             console.log("HHHH");
             });     
     });
+    // Input only english words
+    
+    $("#coin_symbol").keypress(function(){
+  if ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)) {
+      
+  }
+  else {
+  $( "#no_eng" ).remove();
+   $( "#coin_symbol" ).after( "<p id='no_eng'>Пожалуйста, вводите название на английском языке </p>" );
+   
+   function timerHide(){
+  $( "#no_eng" ).slideUp(400);
+}
+setTimeout(timerHide, 2000);
+  return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57);
+ 
+   
+  };
+  
+
+  });
 </script>
 
 <!-- -->

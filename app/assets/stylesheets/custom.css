@@ -177,3 +177,9 @@ body {
 .navbar {
  margin-bottom: 0px!important;   
 }
+
+#no_eng {
+ font-weight: bold;
+ color: red;
+}
+}
