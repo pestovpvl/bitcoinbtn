@@ -8473,3 +8473,154 @@ Processing by Devise::RegistrationsController#create as HTML
 Completed 200 OK in 190ms (Views: 43.8ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/people" for 127.0.0.1 at 2018-06-30 03:03:04 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/people"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+/opt/passenger40/lib/phusion_passenger/rack/thread_handler_extension.rb:74:in `process_request'
+/opt/passenger40/lib/phusion_passenger/request_handler/thread_handler.rb:141:in `accept_and_process_next_request'
+/opt/passenger40/lib/phusion_passenger/request_handler/thread_handler.rb:109:in `main_loop'
+/opt/passenger40/lib/phusion_passenger/request_handler.rb:455:in `block (3 levels) in start_threads'
+Started GET "/" for 127.0.0.1 at 2018-06-30 03:03:20 +0300
+Processing by HomeController#index as HTML
+* Accept-Language: ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7
+* Locale set to 'ru'
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.5ms)
+  Rendered home/_navbar.html.erb (2.0ms)
+  Rendered home/_flash.html.erb (0.6ms)
+Completed 200 OK in 216ms (Views: 60.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/people/sign_in" for 127.0.0.1 at 2018-06-30 03:03:22 +0300
+Processing by Devise::SessionsController#new as HTML
+* Accept-Language: ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7
+* Locale set to 'ru'
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (3.9ms)
+  Rendered home/_navbar.html.erb (2.0ms)
+  Rendered home/_flash.html.erb (0.6ms)
+Completed 200 OK in 75ms (Views: 72.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/people/sign_in" for 127.0.0.1 at 2018-06-30 03:03:24 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"77bzjgT0tW7Ply+XHJmgL2SdIlGhFo72vlrHzCO1JYYOjS+ODmF2Qihw7vuMlfhvKsMD5IctbGvuTuLU19fxHQ==", "person"=>{"email"=>"artpestov@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Войти"}
+* Accept-Language: ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7
+* Locale set to 'ru'
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."email" = ? ORDER BY "people"."id" ASC LIMIT ?[0m  [["email", "artpestov@gmail.com"], ["LIMIT", 1]]
+  ↳ /opt/passenger40/lib/phusion_passenger/rack/thread_handler_extension.rb:74
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /opt/passenger40/lib/phusion_passenger/rack/thread_handler_extension.rb:74
+  [1m[36mPerson Update (0.8ms)[0m  [1m[33mUPDATE "people" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "people"."id" = ?[0m  [["current_sign_in_at", "2018-06-30 00:03:24.342888"], ["last_sign_in_at", "2018-06-29 23:18:43.439745"], ["sign_in_count", 8], ["updated_at", "2018-06-30 00:03:24.344315"], ["id", 2]]
+  ↳ /opt/passenger40/lib/phusion_passenger/rack/thread_handler_extension.rb:74
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /opt/passenger40/lib/phusion_passenger/rack/thread_handler_extension.rb:74
+Redirected to http://bitcoinbtn.ru/
+Completed 302 Found in 158ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-30 03:03:24 +0300
+Processing by HomeController#index as HTML
+* Accept-Language: ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7
+* Locale set to 'ru'
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = ? ORDER BY "people"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "coins" WHERE "coins"."person_id" = ?[0m  [["person_id", 2]]
+  ↳ app/views/home/index.html.erb:27
+  Rendered static_pages/_home_have_coin.erb (0.7ms)
+  Rendered home/index.html.erb within layouts/application (4.4ms)
+  Rendered home/_navbar.html.erb (1.4ms)
+  Rendered home/_flash.html.erb (0.4ms)
+Completed 200 OK in 150ms (Views: 47.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/coins" for 127.0.0.1 at 2018-06-30 03:03:26 +0300
+Processing by CoinsController#index as HTML
+* Accept-Language: ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7
+* Locale set to 'ru'
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  ↳ app/views/coins/index.html.erb:61
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = ? ORDER BY "people"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/coins/index.html.erb:65
+  Rendered coins/index.html.erb within layouts/application (15.2ms)
+  Rendered home/_navbar.html.erb (1.4ms)
+  Rendered home/_flash.html.erb (0.3ms)
+Completed 200 OK in 173ms (Views: 64.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins" for 127.0.0.1 at 2018-06-30 03:03:26 +0300
+Processing by CoinsController#index as HTML
+* Accept-Language: ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7
+* Locale set to 'ru'
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  ↳ app/views/coins/index.html.erb:61
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = ? ORDER BY "people"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/coins/index.html.erb:65
+  Rendered coins/index.html.erb within layouts/application (13.3ms)
+  Rendered home/_navbar.html.erb (1.5ms)
+  Rendered home/_flash.html.erb (0.4ms)
+Completed 200 OK in 229ms (Views: 56.4ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/coins/11" for 127.0.0.1 at 2018-06-30 03:03:31 +0300
+Processing by CoinsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z5iSvYfNudsMM1tb3Irl20gzsy15XlPXiu1R1SgvQNp2XjSuF587m8tcBfuDGx+Z7GK2CHVAzsLNLuVb6OaciA==", "id"=>"11"}
+* Accept-Language: ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7
+* Locale set to 'ru'
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/coins_controller.rb:92
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = ? ORDER BY "people"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/coins_controller.rb:100
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."person_id" = ? AND "coins"."id" = ? LIMIT ?[0m  [["person_id", 2], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/coins_controller.rb:100
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/coins_controller.rb:82
+  [1m[36mCoin Destroy (0.8ms)[0m  [1m[31mDELETE FROM "coins" WHERE "coins"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/coins_controller.rb:82
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/coins_controller.rb:82
+Redirected to http://bitcoinbtn.ru/coins
+Completed 302 Found in 24ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/coins" for 127.0.0.1 at 2018-06-30 03:03:32 +0300
+Processing by CoinsController#index as HTML
+* Accept-Language: ru,en-US;q=0.9,en;q=0.8,ru-RU;q=0.7
+* Locale set to 'ru'
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  ↳ app/views/coins/index.html.erb:61
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = ? ORDER BY "people"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/coins/index.html.erb:65
+  Rendered coins/index.html.erb within layouts/application (11.6ms)
+  Rendered home/_navbar.html.erb (1.5ms)
+  Rendered home/_flash.html.erb (0.4ms)
+Completed 200 OK in 168ms (Views: 59.2ms | ActiveRecord: 0.4ms)
+
+
